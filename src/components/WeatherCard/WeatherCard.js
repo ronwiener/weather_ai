@@ -4,6 +4,22 @@ import "../../App.css";
 
 const WeatherCard = ({ weatherData }) => {
   console.log(weatherData);
+
+  function degToCompass(deg) {
+    const val = Math.floor(deg / 45 + 0.5);
+    const directionArr = [
+      "↑ N",
+      "↗ NE",
+      "→ E",
+      "↘ SE",
+      "↓ S",
+      "↙ SW",
+      "← W",
+      "↖ NW",
+    ];
+    return directionArr[val % 8];
+  }
+
   return (
     <>
       <div
@@ -56,6 +72,15 @@ const WeatherCard = ({ weatherData }) => {
         <div className="box">
           <p>Wind</p>
           <h1>{weatherData[3].speed.toFixed()} mph</h1>
+
+          <p>Wind Gusts</p>
+          <h1>
+            {weatherData[3].gust ? weatherData[3].gust.toFixed() : "N/A "}
+            <span>mph</span>
+          </h1>
+
+          <p>Wind Direction</p>
+          <h1>{degToCompass(weatherData[3].deg)}</h1>
         </div>
 
         <div className="box">
