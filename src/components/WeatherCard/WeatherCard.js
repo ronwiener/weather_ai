@@ -70,6 +70,16 @@ const WeatherCard = ({ weatherData }) => {
         </div>
 
         <div className="box">
+          <p>High</p>
+          <h1>{weatherData[2].temp_max.toFixed()} °F</h1>
+        </div>
+
+        <div className="box">
+          <p>Low</p>
+          <h1>{weatherData[2].temp_min.toFixed()} °F</h1>
+        </div>
+
+        <div className="box">
           <p>Wind</p>
           <h1>{weatherData[3].speed.toFixed()} mph</h1>
 
@@ -81,16 +91,6 @@ const WeatherCard = ({ weatherData }) => {
 
           <p>Wind Direction</p>
           <h1>{degToCompass(weatherData[3].deg)}</h1>
-        </div>
-
-        <div className="box">
-          <p>High</p>
-          <h1>{weatherData[2].temp_max.toFixed()} °F</h1>
-        </div>
-
-        <div className="box">
-          <p>Low</p>
-          <h1>{weatherData[2].temp_min.toFixed()} °F</h1>
         </div>
       </div>
     </>
